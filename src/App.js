@@ -1,30 +1,36 @@
-import React, { Component } from "react";
-import "./App.css";
+import React, { Component } from 'react'
 
 class App extends Component {
-  constructor(props) {
+  constructor(props){
     super(props);
-
+    
     this.state = {
-      message: "",
-    };
+      filterString: "",
+      foods: ["pizza, candy, beer, chips"]
+    }; 
   }
-
-  handleChange(value) {
-    this.setState({ message: value });
-  }
+   handleChange(filter){
+     this.setState({filterString: filter});
+   }
   render() {
-    return (
-      <div className="App">
-        <input
-          onChange={(e) => this.handleChange(e.target.value)}
-          type="text"
-        />
-        <p>{this.state.message}</p>
-      </div>
-    );
-  }
-}
-// onChange handles the value of an input element changes.
+    let foodsToDisplay = this.state.foods
+    .filter((element , index) => {return element.includes(this.state.filterString)
+    })
+   
+    .map((element, index) => {
+      return <h2 key={index}>{element}</h2>;
+    });
 
-export default App;
+  return (
+    <div className="App">
+      <input onChange={e => this.handleChange(e.target.value)} type="text" />
+      {foodsToDisplay}
+    </div>
+  );
+}
+}
+
+
+
+
+export default App; 
