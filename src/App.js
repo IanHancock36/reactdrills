@@ -1,36 +1,27 @@
-import React, { Component } from 'react'
-
-class App extends Component {
-  constructor(props){
-    super(props);
-    
-    this.state = {
-      filterString: "",
-      foods: ["pizza, candy, beer, chips"]
-    }; 
+import React, { useState } from "react";
+function App() {
+  const [name, setName] = useState("");
+  function handleChange(e) {
+    setName(e.target.value);
   }
-   handleChange(filter){
-     this.setState({filterString: filter});
-   }
-  render() {
-    let foodsToDisplay = this.state.foods
-    .filter((element , index) => {return element.includes(this.state.filterString)
-    })
-   
-    .map((element, index) => {
-      return <h2 key={index}>{element}</h2>;
-    });
 
   return (
-    <div className="App">
-      <input onChange={e => this.handleChange(e.target.value)} type="text" />
-      {foodsToDisplay}
+    <div>
+      <input name="First Name" value={name} onChange={handleChange} />
     </div>
   );
 }
-}
 
+// Notes \\
+// This is a functional react component to render the text input that is in
+// the text box using an onChange event handler. This also stores value inside of state.
+// #1 the above code displays a single input field, when typed in it passes current value
+// to the handle change function.
+//#2 you must declare (write) the handle function.
+//#3 declare the handleChange function pass in the passing in the "synthetic event"
+// which is the (e) in handleChange(e).. this is passes as first parameter of the event
+// handler function. this event gives you the value from the input field everytime somone types
+// into it with the events target property
+//$$%$%%$ FINISH READING ARTICLE NOT FINISHED YET
 
-
-
-export default App; 
+export default App;
