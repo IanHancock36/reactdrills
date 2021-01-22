@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import ClassClick from './ClassClick'
+import React, from 'react'; 
 function App() {
   const [name, setName] = useState("");
   function handleChange(e) {
@@ -7,6 +9,7 @@ function App() {
 
   return (
     <div>
+      <ClassClick>Click Me </ClassClick>
       <input name="First Name" value={name} onChange={handleChange} />
     </div>
   );
