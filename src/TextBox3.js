@@ -17,7 +17,7 @@ export default class TextBox3 extends Component {
             <div>
                 
                 <input type ="text" placeholder ="type text in here" onChange ={this.handleChange} />  
-                <p> </p>
+                <p>{this.state.textbox} </p> 
                 <h1>Hello world</h1>
             </div>
         )
@@ -27,3 +27,5 @@ export default class TextBox3 extends Component {
 
 //this.handleChange is passed to the input because the event handler is listening to for the input value to be changed 
 // it is starting off as an empty string but once something is typed in it changes the state. 
+
+// the <p> tag is looking for the whatever the value of textbox is 
